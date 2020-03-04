@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Office__c</fullName>
+    <externalId>false</externalId>
+    <label>Office</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Location__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bangalore</fullName>
+                <default>true</default>
+                <label>Bangalore</label>
+            </value>
+            <value>
+                <fullName>Chennai</fullName>
+                <default>false</default>
+                <label>Chennai</label>
+            </value>
+            <value>
+                <fullName>Michigan</fullName>
+                <default>false</default>
+                <label>Michigan</label>
+            </value>
+            <value>
+                <fullName>MVD WTC 1</fullName>
+                <default>false</default>
+                <label>MVD WTC 1</label>
+            </value>
+            <value>
+                <fullName>MVD WTC 2</fullName>
+                <default>false</default>
+                <label>MVD WTC 2</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>India</controllingFieldValue>
+            <valueName>Bangalore</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>India</controllingFieldValue>
+            <valueName>Chennai</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Uruguay</controllingFieldValue>
+            <valueName>MVD WTC 1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Uruguay</controllingFieldValue>
+            <valueName>MVD WTC 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>US</controllingFieldValue>
+            <valueName>Michigan</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
