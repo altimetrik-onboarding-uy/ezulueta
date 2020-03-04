@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Ordered_Dates</fullName>
-    <active>true</active>
-    <errorConditionFormula>Start_Date__c &gt; End_Date__c</errorConditionFormula>
-    <errorDisplayField>Start_Date__c</errorDisplayField>
-    <errorMessage>Start-Date must be less than or equal to the End-Date</errorMessage>
-</ValidationRule>
