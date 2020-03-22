@@ -1,0 +1,75 @@
+<aura:component description="Show Compensations from Employees"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" 
+                controller="CompensationTableController">
+    <aura:attribute name="compensationDetails" type="List" />
+    <aura:handler name="init"
+                  value="{!this}"
+                  action="{!c.doInit}"/> 
+    <table aura:id="myTable" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-no-row-hover slds-table_col-bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Employee's Name">Employee's Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Employee's Birthdate">Employee's Birthdate</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Job Category">Job Category</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Compensation Type">Compensation Type</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Amount">Amount</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Location">Location</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Office">Office</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Submitted">Submitted</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Status">Status</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.compensationDetails}" var="item">
+                <tr class="slds-hint-parent">
+                    <td data-label="Employee's Name">
+                        <div class="slds-truncate" title="Employee's Name">{!item.Contact_Compensation__r.Name}</div>
+                    </td>
+                    <td data-label="Employee's Birthdate">
+                        <p><lightning:formattedDateTime value="{!item.Contact_Compensation__r.Birthdate}" year="numeric" month="long" day="2-digit" /></p>
+                    </td>
+                    <td data-label="Job Category">
+                        <div class="slds-truncate" title="Job Category">{!item.Job_Category__c}</div>
+                    </td>
+                    <td data-label="Compensation Type">
+                        <div class="slds-truncate" title="Compensation Type">{!item.RecordType.Name}</div>
+                    </td>
+                    <td data-label="Amount">
+                        <div class="slds-truncate" title="Amount">{!item.Amount__c}</div>
+                    </td>
+                    <td data-label="Location">
+                        <div class="slds-truncate" title="Location">{!item.Location__c}</div>
+                    </td>
+                    <td data-label="Office">
+                        <div class="slds-truncate" title="Office">{!item.Office__c}</div>
+                    </td>
+                    <td data-label="Submitted">
+                        <div class="slds-truncate" title="Submitted">{!item.Submitted__c}</div>
+                    </td>
+                    <td data-label="Status">
+                        <div class="slds-truncate" title="Status">{!item.Status__c}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>
