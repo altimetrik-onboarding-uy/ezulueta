@@ -12,31 +12,21 @@
         });
         $A.enqueueAction(action);
 	},
-    filter : function (cmp){
-        var x = component.get("v.compensationDetails");
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        //input = document.getElementById("myInput");
-        input = "Janet";
-        //filter = input.value.toUpperCase();
-        filter = input.toUpperCase();
-        //console.log("div1: ", cmp.find("myTable").getElement());
-        table = cmp.find('myTable');
-        //tr = table.get('v.value');
-        tr = table.get('v.value');
-        alert(tr);
-        
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
+    filter : function (component){
+        var filter = component.find("select").get("v.value");
+        var rows = document.getElementById("table").rows;
+        for(var i=1; i<rows.length; i++){
+            if(filter === "All compensations" || rows[i].cells[3].innerHTML === filter)
+                rows[i].style.display = "table-row";
+            else
+                rows[i].style.display = "none";
         }
     },
+    editRecord : function (component, event){
+        var editRecordEvent = $A.get("e.force:editRecord");
+        editRecordEvent.setParams({
+             "recordId": event.currentTarget.id
+       	});
+        editRecordEvent.fire();
+    }
 })

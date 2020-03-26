@@ -12,6 +12,6 @@ public class CompensationTableController {
                 Office__c,
                 Submitted__c,
                 Status__c
-                from Compensation__c limit 10];
+                from Compensation__c limit 100];
     }
 }
