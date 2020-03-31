@@ -48,35 +48,7 @@
         </thead>
         <tbody>
             <aura:iteration items="{!v.compensationDetails}" var="item">
-                <tr class="slds-hint-parent">
-                    <td data-label="Employee's Name">
-                        <a class="slds-truncate" id="{!item.Contact_Compensation__c}" onclick="{!c.editRecord}">{!item.Contact_Compensation__r.Name}</a>
-                    </td>
-                    <td data-label="Employee's Birthdate">
-                        <p><lightning:formattedDateTime value="{!item.Contact_Compensation__r.Birthdate}" year="numeric" month="long" day="2-digit" /></p>
-                    </td>
-                    <td data-label="Job Category">
-                        <div class="slds-truncate" title="Job Category">{!item.Job_Category__c}</div>
-                    </td>
-                    <td data-label="Compensation Type" title="Compensation Type" class="slds-truncate">
-                        {!item.RecordType.Name}
-                    </td>
-                    <td data-label="Amount">
-                        <div class="slds-truncate" title="Amount">{!item.Amount__c}</div>
-                    </td>
-                    <td data-label="Location">
-                        <div class="slds-truncate" title="Location">{!item.Location__c}</div>
-                    </td>
-                    <td data-label="Office">
-                        <div class="slds-truncate" title="Office">{!item.Office__c}</div>
-                    </td>
-                    <td data-label="Submitted">
-                        <div class="slds-truncate" title="Submitted">{!item.Submitted__c}</div>
-                    </td>
-                    <td data-label="Status">
-                        <div class="slds-truncate" title="Status">{!item.Status__c}</div>
-                    </td>
-                </tr>
+                <c:CompensationRow compensation="{!item}"/>
             </aura:iteration>
         </tbody>
     </table>

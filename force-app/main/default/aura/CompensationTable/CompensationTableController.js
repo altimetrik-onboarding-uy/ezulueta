@@ -5,9 +5,6 @@
         component.set("v.filterOptions", options);
     },
     filter : function(component, event, helper) {
-        helper.filter(component);
+        helper.filter(component, event);
     },
-    editRecord : function(component, event, helper) {
-        helper.editRecord(component, event);
-    }, 
 })
