@@ -1,0 +1,75 @@
+<aura:component description="Show Compensations from Employees"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" 
+                controller="CompensationTableController">
+    <aura:attribute name="compensationDetails" type="List"/>
+    <aura:attribute name="filterOptions" type="Set"/>
+    <aura:attribute name="filterOptions_2" type="Set"/>
+    <aura:handler name="init"
+                  value="{!this}"
+                  action="{!c.doInit}"/> 
+    <div class="slds-box slds-grid slds-theme_shade slds-theme_alert-texture">
+    	<ui:inputSelect class="single slds-col" aura:id="select" change="{!c.filter}">
+            <aura:iteration items="{!v.filterOptions}" var="opt">
+                <ui:inputSelectOption text="{!opt}"/>
+            </aura:iteration>
+        </ui:inputSelect>
+        <ui:inputSelect class="single slds-col" aura:id="select_2" change="{!c.filter}">
+            <aura:iteration items="{!v.filterOptions_2}" var="opt">
+                <ui:inputSelectOption text="{!opt}"/>
+            </aura:iteration>
+        </ui:inputSelect>
+    </div>
+    <div class="slds-box slds-theme_shade">
+        <div >
+            <strong>Showing Results for your filters :</strong>
+        </div>
+    </div>
+    <article class="slds-card">
+        <table id="table" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-no-row-hover slds-table_col-bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Employee's Name">Employee's Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Employee's Birthdate">Employee's Birthdate</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Job Category">Job Category</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Compensation Type">Compensation Type</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Amount">Amount</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Location">Location</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Office">Office</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Submitted">Submitted</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Status">Status</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Submit for Approval">Submit?</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.compensationDetails}" var="item">
+                    <c:CompensationRow compensation="{!item}"/>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </article>
+    <div class="slds-align_absolute-center slds-box slds-grid slds-theme_shade slds-theme_alert-texture">
+        <lightning:button variant="brand" label="Submit Selected" onclick="{!c.submitSelected}" />
+        <lightning:button variant="brand" label="Export to CSV" onclick="{!c.exportTableToCSV}" />
+    </div>
+</aura:component>
