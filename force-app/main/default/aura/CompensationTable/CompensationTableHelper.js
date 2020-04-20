@@ -120,7 +120,7 @@
                 {
                     csvStringResult+=columnDivider;
                 }
-                if(typeof objRecords[i][skey]==='object' && (skey==='Contact_Compensation__r')){
+                if(typeof objRecords[i][skey] === 'object' && (skey === 'Contact_Compensation__r')){
                     if(counter == 0){
                         csvStringResult+='"'+objRecords[i][skey].Name+'"';
                     }
@@ -129,7 +129,7 @@
                     }
                     counter ++;
                 }
-                else if(typeof objRecords[i][skey]==='object' &&  skey==='RecordType'){
+                else if(typeof objRecords[i][skey] === 'object' &&  skey === 'RecordType'){
                     csvStringResult+='"'+objRecords[i][skey].Name+'"';
                     counter ++;
                 }
